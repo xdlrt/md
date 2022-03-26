@@ -1,4 +1,4 @@
-import defaultTheme from './themes/default-theme'
+import defaultTheme from './themes/yeshu-theme'
 import prettier from 'prettier/standalone'
 import prettierMarkdown from 'prettier/parser-markdown'
 import prettierCss from 'prettier/parser-postcss'
@@ -8,7 +8,7 @@ export function setColorWithTemplate(template) {
   return function (color) {
     let customTheme = JSON.parse(JSON.stringify(template))
     customTheme.block.h1[`border-bottom`] = `2px solid ${color}`
-    customTheme.block.h2[`background`] = color
+    // customTheme.block.h2[`background`] = color
     customTheme.block.h3[`border-left`] = `3px solid ${color}`
     customTheme.block.h4[`color`] = color
     customTheme.inline.strong[`color`] = color
@@ -22,7 +22,7 @@ export const setColorWithCustomTemplate = function setColorWithCustomTemplate(
 ) {
   let customTheme = JSON.parse(JSON.stringify(template))
   customTheme.block.h1[`border-bottom`] = `2px solid ${color}`
-  customTheme.block.h2[`background`] = color
+  // customTheme.block.h2[`background`] = color
   customTheme.block.h3[`border-left`] = `3px solid ${color}`
   customTheme.block.h4[`color`] = color
   customTheme.inline.strong[`color`] = color
