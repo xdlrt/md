@@ -186,7 +186,6 @@
     <div class="right-side">
       <el-button
         type="primary"
-        plain
         size="medium"
         @click="copy"
         placement="bottom-start"
@@ -196,6 +195,7 @@
         :type="btnType"
         plain
         size="medium"
+        icon="el-icon-picture-outline"
         @click="$emit('show-dialog-upload-img')"
         placement="bottom-start"
         >图片上传</el-button
@@ -207,6 +207,9 @@
         icon="el-icon-setting"
         @click="customStyle"
         >自定义样式</el-button
+      >
+      <el-button :type="btnType" plain size="medium" @click="toGithub">
+        Github</el-button
       >
       <!-- <el-button
         :type="btnType"
@@ -366,6 +369,9 @@ export default {
     statusChanged(val) {
       this.setCiteStatus(val)
       this.$emit(`refresh`)
+    },
+    toGithub() {
+      location.href = `https://github.com/xdlrt/md`
     },
     // 复制到微信公众号
     copy(e) {
