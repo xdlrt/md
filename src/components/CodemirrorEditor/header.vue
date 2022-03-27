@@ -160,15 +160,15 @@
           <span class="select-item-right">{{ code.desc }}</span>
         </el-option>
       </el-select> -->
-      <el-tooltip content="自定义颜色" :effect="effect" placement="top">
+      <!-- <el-tooltip content="自定义颜色" :effect="effect" placement="top">
         <el-color-picker
           v-model="selectColor"
           size="mini"
           show-alpha
           @change="colorChanged"
         ></el-color-picker>
-      </el-tooltip>
-      <el-tooltip
+      </el-tooltip> -->
+      <!-- <el-tooltip
         content="微信外链自动转为文末引用"
         :effect="effect"
         placement="top"
@@ -181,7 +181,7 @@
           @change="statusChanged"
         >
         </el-switch>
-      </el-tooltip>
+      </el-tooltip> -->
     </div>
     <div class="right-side">
       <el-button
@@ -196,17 +196,17 @@
         :type="btnType"
         plain
         size="medium"
-        icon="el-icon-setting"
-        @click="customStyle"
-        >自定义样式</el-button
+        @click="$emit('show-dialog-upload-img')"
+        placement="bottom-start"
+        >图片上传</el-button
       >
       <el-button
         :type="btnType"
         plain
         size="medium"
-        @click="$emit('show-dialog-upload-img')"
-        placement="bottom-start"
-        >图片上传</el-button
+        icon="el-icon-setting"
+        @click="customStyle"
+        >自定义样式</el-button
       >
       <!-- <el-button
         :type="btnType"
@@ -421,7 +421,7 @@ export default {
       this.statusChanged(false)
       this.fontChanged(this.config.builtinFonts[0].value)
       this.colorChanged(this.config.colorOption[0].value)
-      this.sizeChanged(this.config.sizeOption[2].value)
+      this.sizeChanged(this.config.sizeOption[1].value)
       this.codeThemeChanged(this.config.codeThemeOption[0].value)
       this.$emit(`cssChanged`)
       this.selectFont = this.currentFont

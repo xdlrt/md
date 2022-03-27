@@ -23,11 +23,11 @@ export default {
       'font-size': `1.2em`,
       'text-align': `left`,
       'font-weight': `bold`,
-      display: `table`,
+      // display: `table`,
       margin: `2em auto 1em`,
       padding: `0 0.2em`,
       //   background: `rgba(0, 152, 116, 0.9)`,
-      color: `#3f3f3f`,
+      color: baseColor,
     },
 
     // 三级标题样式

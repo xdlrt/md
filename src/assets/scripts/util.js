@@ -9,6 +9,7 @@ export function setColorWithTemplate(template) {
     let customTheme = JSON.parse(JSON.stringify(template))
     customTheme.block.h1[`border-bottom`] = `2px solid ${color}`
     // customTheme.block.h2[`background`] = color
+    customTheme.block.h2[`color`] = color
     customTheme.block.h3[`border-left`] = `3px solid ${color}`
     customTheme.block.h4[`color`] = color
     customTheme.inline.strong[`color`] = color
@@ -23,6 +24,7 @@ export const setColorWithCustomTemplate = function setColorWithCustomTemplate(
   let customTheme = JSON.parse(JSON.stringify(template))
   customTheme.block.h1[`border-bottom`] = `2px solid ${color}`
   // customTheme.block.h2[`background`] = color
+  customTheme.block.h2[`color`] = color
   customTheme.block.h3[`border-left`] = `3px solid ${color}`
   customTheme.block.h4[`color`] = color
   customTheme.inline.strong[`color`] = color
@@ -48,7 +50,7 @@ export function customCssWithTemplate(jsonString, color, theme) {
   let customTheme = JSON.parse(JSON.stringify(theme))
   // block
   customTheme.block.h1[`border-bottom`] = `2px solid ${color}`
-  customTheme.block.h2[`background`] = color
+  customTheme.block.h2[`color`] = color
   customTheme.block.h3[`border-left`] = `3px solid ${color}`
   customTheme.block.h4[`color`] = color
   customTheme.inline.strong[`color`] = color

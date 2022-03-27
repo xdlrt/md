@@ -11,32 +11,27 @@ export default {
   ],
   sizeOption: [
     {
-      label: `12px`,
-      value: `12px`,
-      desc: `更小`,
-    },
-    {
       label: `13px`,
       value: `13px`,
-      desc: `稍小`,
-    },
-    {
-      label: `14px`,
-      value: `14px`,
-      desc: `推荐`,
+      desc: `更小`,
     },
     {
       label: `15px`,
       value: `15px`,
-      desc: `稍大`,
+      desc: `推荐`,
     },
     {
-      label: `16px`,
-      value: `16px`,
+      label: `17px`,
+      value: `17px`,
       desc: `更大`,
     },
   ],
   colorOption: [
+    {
+      label: `活力橘`,
+      value: `rgba(250, 81, 81, 1)`,
+      desc: `热情活泼`,
+    },
     {
       label: `经典蓝`,
       value: `rgba(15, 76, 129, 1)`,
@@ -46,11 +41,6 @@ export default {
       label: `翡翠绿`,
       value: `rgba(0, 152, 116, 1)`,
       desc: `优雅清新`,
-    },
-    {
-      label: `活力橘`,
-      value: `rgba(250, 81, 81, 1)`,
-      desc: `热情活泼`,
     },
   ],
   codeThemeOption: [
