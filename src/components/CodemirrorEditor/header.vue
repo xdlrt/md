@@ -37,15 +37,15 @@
     </el-dialog>
     <div class="left-side">
       <!-- 图片上传 -->
-      <el-tooltip :effect="effect" content="上传图片" placement="bottom-start">
+      <!-- <el-tooltip :effect="effect" content="上传图片" placement="bottom-start">
         <i
           class="el-icon-upload"
           size="medium"
           @click="$emit('show-dialog-upload-img')"
         ></i>
-      </el-tooltip>
+      </el-tooltip> -->
       <!-- 导出 Markdown 文档 -->
-      <el-tooltip
+      <!-- <el-tooltip
         class="header__item"
         :effect="effect"
         content="导出 Markdown 文档"
@@ -56,18 +56,18 @@
           size="medium"
           @click="$emit('download')"
         ></i>
-      </el-tooltip>
+      </el-tooltip> -->
       <!-- 导出 HTML -->
-      <el-tooltip
+      <!-- <el-tooltip
         class="header__item"
         :effect="effect"
         content="导出 HTML 页面"
         placement="bottom-start"
       >
         <i class="el-icon-document" size="medium" @click="$emit('export')"></i>
-      </el-tooltip>
+      </el-tooltip> -->
       <!-- 样式重置 -->
-      <el-tooltip
+      <!-- <el-tooltip
         class="header__item"
         :effect="effect"
         content="重置样式"
@@ -78,9 +78,9 @@
           size="medium"
           @click="showResetConfirm = true"
         ></i>
-      </el-tooltip>
+      </el-tooltip> -->
       <!-- 插入表格 -->
-      <el-tooltip
+      <!-- <el-tooltip
         class="header__item header__item_last"
         :effect="effect"
         content="插入表格"
@@ -91,8 +91,8 @@
           size="medium"
           @click="$emit('show-dialog-form')"
         ></i>
-      </el-tooltip>
-      <el-select
+      </el-tooltip> -->
+      <!-- <el-select
         v-model="selectFont"
         size="mini"
         placeholder="选择字体"
@@ -109,7 +109,7 @@
           <span class="select-item-left">{{ font.label }}</span>
           <span class="select-item-right">Abc</span>
         </el-option>
-      </el-select>
+      </el-select> -->
       <el-select
         v-model="selectSize"
         size="mini"
@@ -144,7 +144,7 @@
           <span class="select-item-right">{{ color.desc }}</span>
         </el-option>
       </el-select>
-      <el-select
+      <!-- <el-select
         v-model="selectCodeTheme"
         size="mini"
         placeholder="代码主题"
@@ -159,16 +159,16 @@
           <span class="select-item-left">{{ code.label }}</span>
           <span class="select-item-right">{{ code.desc }}</span>
         </el-option>
-      </el-select>
-      <el-tooltip content="自定义颜色" :effect="effect" placement="top">
+      </el-select> -->
+      <!-- <el-tooltip content="自定义颜色" :effect="effect" placement="top">
         <el-color-picker
           v-model="selectColor"
           size="mini"
           show-alpha
           @change="colorChanged"
         ></el-color-picker>
-      </el-tooltip>
-      <el-tooltip
+      </el-tooltip> -->
+      <!-- <el-tooltip
         content="微信外链自动转为文末引用"
         :effect="effect"
         placement="top"
@@ -181,32 +181,34 @@
           @change="statusChanged"
         >
         </el-switch>
-      </el-tooltip>
+      </el-tooltip> -->
     </div>
     <div class="right-side">
-      <el-tooltip
-        class="item"
-        :effect="effect"
-        content="自定义CSS样式"
-        placement="left"
-      >
-        <el-button
-          :type="btnType"
-          plain
-          size="medium"
-          icon="el-icon-setting"
-          @click="customStyle"
-        ></el-button>
-      </el-tooltip>
       <el-button
-        :type="btnType"
+        type="primary"
         plain
         size="medium"
         @click="copy"
         placement="bottom-start"
-        >复制</el-button
+        >复制到剪贴板</el-button
       >
       <el-button
+        :type="btnType"
+        plain
+        size="medium"
+        @click="$emit('show-dialog-upload-img')"
+        placement="bottom-start"
+        >图片上传</el-button
+      >
+      <el-button
+        :type="btnType"
+        plain
+        size="medium"
+        icon="el-icon-setting"
+        @click="customStyle"
+        >自定义样式</el-button
+      >
+      <!-- <el-button
         :type="btnType"
         plain
         size="medium"
@@ -221,8 +223,8 @@
         class="about"
         @click="$emit('show-about-dialog')"
         >关于</el-button
-      >
-      <el-tooltip
+      > -->
+      <!-- <el-tooltip
         :content="btnContent"
         :effect="effect"
         placement="bottom-start"
@@ -233,7 +235,7 @@
           @click="themeChanged"
         ></div>
         <div class="mode__switch" v-else @click="themeChanged"></div>
-      </el-tooltip>
+      </el-tooltip> -->
     </div>
     <resetDialog
       :showResetConfirm="showResetConfirm"
@@ -285,7 +287,7 @@ export default {
       return this.nightMode ? `浅色模式` : `暗黑模式`
     },
     btnType() {
-      return this.nightMode ? `default` : `primary`
+      return this.nightMode ? `default` : `default`
     },
     ...mapState({
       output: (state) => state.output,
@@ -419,7 +421,7 @@ export default {
       this.statusChanged(false)
       this.fontChanged(this.config.builtinFonts[0].value)
       this.colorChanged(this.config.colorOption[0].value)
-      this.sizeChanged(this.config.sizeOption[2].value)
+      this.sizeChanged(this.config.sizeOption[1].value)
       this.codeThemeChanged(this.config.codeThemeOption[0].value)
       this.$emit(`cssChanged`)
       this.selectFont = this.currentFont

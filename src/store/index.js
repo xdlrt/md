@@ -4,7 +4,7 @@ import config from '../assets/scripts/config'
 import WxRenderer from '../assets/scripts/renderers/wx-renderer'
 import { marked } from 'marked'
 import CodeMirror from 'codemirror/lib/codemirror'
-import DEFAULT_CONTENT from '@/assets/example/markdown.md'
+import DEFAULT_CONTENT from '@/assets/example/yeshu.md'
 import DEFAULT_CSS_CONTENT from '@/assets/example/theme-css.txt'
 import { setColor, formatDoc, formatCss } from '../assets/scripts/util'
 
@@ -67,10 +67,12 @@ const mutations = {
     state.currentColor =
       localStorage.getItem(`color`) || config.colorOption[0].value
     state.currentSize =
-      localStorage.getItem(`size`) || config.sizeOption[2].value
+      localStorage.getItem(`size`) || config.sizeOption[1].value
     state.codeTheme =
       localStorage.getItem(`codeTheme`) || config.codeThemeOption[0].value
-    state.citeStatus = localStorage.getItem(`citeStatus`) === `true`
+    state.citeStatus = localStorage.getItem(`citeStatus`)
+      ? localStorage.getItem(`citeStatus`) === `true`
+      : true
     state.nightMode = localStorage.getItem(`nightMode`) === `true`
     state.wxRenderer = new WxRenderer({
       theme: setColor(state.currentColor),

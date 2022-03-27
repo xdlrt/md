@@ -58,7 +58,7 @@ class WxRenderer {
       if (!footnoteArray.length) {
         return "";
       }
-      return `<h4 ${getStyles("h4")}>引用链接</h4><p ${getStyles(
+      return `<h4 ${getStyles("h4")}>References</h4><p ${getStyles(
         "footnotes"
       )}>${footnoteArray.join("\n")}</p>`;
     };
@@ -138,7 +138,7 @@ class WxRenderer {
       renderer.listitem = (text) =>
         `<li ${getStyles(
           "listitem"
-        )}><span><%s/></span>${text}</li>`;
+        )}>${text}</li>`;
 
       renderer.list = (text, ordered, start) => {
         text = text.replace(/<\/*p.*?>/g, "");
