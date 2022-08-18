@@ -32,15 +32,15 @@ jobs:
           branch: gh-pages
           folder: dist
 
-sync-to-gitee:
-   runs-on: ubuntu-latest
-   if: github.repository == 'xdlrt/md'
-   needs: build-and-deploy
-   steps:
-     - name: Sync to Gitee
-       uses: wearerequired/git-mirror-action@v1
-       env:
-         SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_TOKEN }}
-       with:
-         source-repo: git@github.com:xdlrt/md.git
-         destination-repo: git@gitee.com:yeshu_in_future/md.git
+  sync-to-gitee:
+    runs-on: ubuntu-latest
+    if: github.repository == 'xdlrt/md'
+    needs: build-and-deploy
+    steps:
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_TOKEN }}
+        with:
+          source-repo: git@github.com:xdlrt/md.git
+          destination-repo: git@gitee.com:yeshu_in_future/md.git
